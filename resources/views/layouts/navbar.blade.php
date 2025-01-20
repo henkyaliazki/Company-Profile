@@ -10,11 +10,13 @@
                 <li><a href="{{ url('/') }}" class="active">Home</a></li>
                 <li><a href="{{ url('/tracking') }}">Tracking</a></li>
                 <li><a href="{{ url('/shipping-simulation') }}">Simulasi Biaya</a></li>
+                <li><a class="btn-getstarted ms-1 px-3" href="{{ url('/order') }}">
+                        Pesan Sekarang</a>
+                </li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="btn-getstarted" href="{{ url('/login') }}"><i class="bi bi-person-circle"></i> Login</a>
 
     </div>
 </header>

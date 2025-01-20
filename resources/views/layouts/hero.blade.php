@@ -4,12 +4,13 @@
     <!-- Page Title -->
     <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
         <div class="container position-relative">
-            <h1>About</h1>
-            <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+            <h4>PT. Noval Ali Group</h4>
+            <p>Pengiriman Cepat, Aman, dan Terpercaya ke Seluruh Indonesia</p>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.blade.php">Home</a></li>
-                    <li class="current">About</li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li href="{{ url('/tracking') }}">Tracking</li>
+                    <li href="{{ url('/shipping-simulation') }}">Simulasi Biaya</li>
                 </ol>
             </nav>
         </div>

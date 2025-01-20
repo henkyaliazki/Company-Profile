@@ -10,11 +10,15 @@ class CekOngkirController extends Controller
 {
     private $apiKey = 'c0ac098679e491cc77754e9b0e8b0c54';
 
+    private  $urlCity = 'https://api.rajaongkir.com/starter/city';
+
+    private $urlCost = 'https://api.rajaongkir.com/starter/cost';
+
     public function shipping_simulation()
     {
         $cities = Cache::remember('cities', 60, function () {
             $response = Http::withHeaders(['key' => $this->apiKey])
-                ->get('https://api.rajaongkir.com/starter/city');
+                ->get($this->urlCity);
             return $response['rajaongkir']['results'];
         });
 
@@ -30,18 +34,18 @@ class CekOngkirController extends Controller
         ]);
 
         $responseCost = Http::withHeaders(['key' => $this->apiKey])
-            ->post('https://api.rajaongkir.com/starter/cost', [
+            ->post($this->urlCost, [
                 'origin' => $request->fromCity,
                 'destination' => $request->toCity,
                 'weight' => $request->weight,
+                'courier' => 'jne'
             ]);
-        dd($responseCost->json());
         $costData = $responseCost->json();
-
-        return view('company_profile.shipping_simulation', [
-            'cities' => $this->getCities(),
-            'costData' => $costData['rajaongkir']['results'],
+        return response()->json([
+            'costDetails' => $costData['rajaongkir']['results'][0]['costs']
         ]);
+
+
     }
 
     private function getCities()

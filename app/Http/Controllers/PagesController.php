@@ -11,14 +11,6 @@ class PagesController extends Controller
         return view('company_profile.index');
     }
 
-    public function about()
-    {
-        return view('company_profile.about');
-    }
 
-    public function tracking()
-    {
-        return view('company_profile.tracking');
-    }
 
 }
